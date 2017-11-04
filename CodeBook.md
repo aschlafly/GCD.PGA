@@ -46,3 +46,6 @@ This is best described by splitting the labels into constiuent pieces.
 *"Y" is used to measure the Y-direction component of the measurement.  
 *"Z" is used to measure the Z-direction component of the measurement.  
 
+## Transformation
+
+The data were transformed by taking the mean of the relevant data, where "relevant" means for the rows with a given subject and a given activity. The mean was taken by using the mean() function with rm.na = TRUE.
