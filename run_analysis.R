@@ -1,19 +1,19 @@
 ## Step 1: Merge the training and test data sets to create one data set
 
 ## Set working directory to be the home of the UCI HAR Dataset
-setwd("~/Other/Coursera/GCData/PGA/UCI HAR Dataset")
+setwd("./UCI HAR Dataset")
 
 ## Read in the label names and features.
 activity_labels <- read.table("activity_labels.txt")
 features <- read.table("features.txt")
 
 ## For the test and training data, read in the subject file, and X and Y files.
-setwd("~/Other/Coursera/GCData/PGA/UCI HAR Dataset/test")
+setwd("./test")
 subject_test <- read.table("subject_test.txt", col.names = "subject")
 X_test <- read.table("X_test.txt", col.names = features[,2])
 Y_test <- read.table("Y_test.txt", col.names = "activity_code")
 
-setwd("~/Other/Coursera/GCData/PGA/UCI HAR Dataset/train")
+setwd("../train")
 subject_train <- read.table("subject_train.txt", col.names = "subject")
 X_train <- read.table("X_train.txt", col.names = features[,2])
 Y_train <- read.table("Y_train.txt", col.names = "activity_code")
@@ -62,6 +62,7 @@ tidydt <- XY %>%
                  mean, na.rm = TRUE) 
 
 ## Write the file to the correct directory
-setwd("~/Other/Coursera/GCData/PGA")
+setwd("../..")
 write.table(tidydt,file = "tidydt.csv")
-
+tidydf <- as.data.frame(tidydt)
+write.table(tidydf,file = "tidydf.txt", row.names = FALSE)
